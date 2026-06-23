@@ -6,6 +6,9 @@ target/
 
 **/movies.csv
 
+*.db
+data/*
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
