@@ -1,7 +1,9 @@
 package bootstrap;
 
-import org.apache.commons.csv.CSVFormat;
+import db.Database;
+import db.Repository;
 import etl.CsvParser;
+import org.apache.commons.csv.CSVFormat;
 
 import java.io.File;
 
@@ -26,7 +28,9 @@ public final class AppSetup {
         if (csvfile.length == 0)
             throw new AppSetupException("No .csv file found in " + pathName);
 
-        new CsvParser(format, csvfile[0]);
+        CsvParser parser = new CsvParser(csvfile[0], format);
+        Repository db = new Database();
+
     }
 
     public static class AppSetupException extends Exception {
@@ -37,4 +41,5 @@ public final class AppSetup {
 
 }
 
-// need shutdown hook to close db on JVM exit??
+// csv returns xx and pass to db
+// need shutdown hook to close db on JVM exit (return after fully built)

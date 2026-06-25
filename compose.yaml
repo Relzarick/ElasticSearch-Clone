@@ -1,0 +1,35 @@
+name: search
+
+services:
+  #  frontend:
+  #    container_name: wretch
+  #    build:
+  #      context: ./frontend
+  #      dockerfile: Dockerfile.web
+  #    ports:
+  #      - "3000:3000"
+  
+  backend:
+    container_name: maggot
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/data:/app/data
+    depends_on:
+      - db
+
+  db:
+    container_name: mongrel
+    image: mongo:8.3
+    logging:
+      driver: "none"
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongrel_data:/data/db
+
+volumes:
+  mongrel_data:

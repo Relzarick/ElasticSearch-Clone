@@ -4,10 +4,8 @@ target/
 !**/src/test/**/target/
 .kotlin
 
-**/movies.csv
-
-*.db
-data/*
+backend/data/*
+!backend/data/.gitkeep
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

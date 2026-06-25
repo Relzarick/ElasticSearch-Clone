@@ -1,21 +1,29 @@
 # ElasticSearch Clone
 
+Simple clone.
+
 ---
 
-## Quickstart
+## Setup
 
-1. Place any dataset into the repository
-2. Change the path url to dataset destination
-3. Run the bootstrap script
+Place your dataset into the backend/data/ folder.
 
-### Dataset Used
+The system is designed to ingest only a single .csv file
+(tested up to 1.6M records).
+It does not support multiple datasets.
 
-Approx 700mb.
+- The .csv file can be deleted after the first boot.
+
+### Dataset used
 
 https://www.kaggle.com/datasets/alanvourch/tmdb-movies-daily-updates?resource=download
 
 ---
 
-## Todo
+## Running the App
 
-1. docker
+Open the terminal and run the following commands.
+
+On first start-up run ``docker compose up --build``
+
+Subsequent start-ups run ``docker compose up -d``

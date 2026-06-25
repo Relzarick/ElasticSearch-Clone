@@ -4,11 +4,12 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public final class CsvParser {
-    public CsvParser(CSVFormat format, File file) {
+    public CsvParser(File file, CSVFormat format) {
         try (CSVParser csvParser = CSVParser.parse(file, StandardCharsets.UTF_8, format)
         ) {
             headerNames = csvParser.getHeaderNames().toArray(new String[0]);
@@ -34,4 +35,6 @@ public final class CsvParser {
 
 }
 
-// now work on mongo
+// calling insert one at a time is probably slow as shit
+// can I do jobs?
+// batch insert.
