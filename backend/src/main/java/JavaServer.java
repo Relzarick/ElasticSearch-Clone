@@ -4,10 +4,15 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
+import db.Database;
+import db.Repository;
+
 void main() {
+    Repository db = new Database();
+
     try {
-        new AppSetup();
-        // make it check if db exists, if not run setup
+        if (db.countDoc() == 0)
+            new AppSetup(db);
 
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
@@ -16,6 +21,8 @@ void main() {
         server.start();
 
         IO.println("Server is running on http://localhost:8080");
+
+        db.fetch(); // testing
     } catch (AppSetup.AppSetupException e) {
         IO.println(e.getMessage());
     } catch (IOException e) {

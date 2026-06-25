@@ -24,6 +24,14 @@ https://www.kaggle.com/datasets/alanvourch/tmdb-movies-daily-updates?resource=do
 
 Open the terminal and run the following commands.
 
-On first start-up run ``docker compose up --build``
+On first start-up run
 
-Subsequent start-ups run ``docker compose up -d``
+```bash
+    docker compose up -d --build
+```
+
+Subsequent start-ups run
+
+```bash
+    docker compose up -d
+```
