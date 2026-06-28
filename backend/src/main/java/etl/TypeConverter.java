@@ -9,8 +9,17 @@ public final class TypeConverter {
     }
 
     public static Object convert(String value) {
+        if (value == null || value.isBlank())
+            return null;
+
         try {
-            return Integer.parseInt(value);
+            long parsedValue = Long.parseLong(value);
+
+            if (parsedValue >= Integer.MIN_VALUE && parsedValue <= Integer.MAX_VALUE)
+                return (int) parsedValue;
+
+            return parsedValue;
+
         } catch (NumberFormatException e) {
             try {
                 return Double.parseDouble(value);

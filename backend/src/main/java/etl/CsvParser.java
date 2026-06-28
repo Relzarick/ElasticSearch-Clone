@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 public final class CsvParser {
     File file;
     CSVFormat format;
-    
+
     /**
      * Ingests .csv files and parses it for database
      */
@@ -44,7 +44,7 @@ public final class CsvParser {
 
                 batch.add(doc);
 
-                if (batch.size() == 1000) {
+                if (batch.size() == 1500) {
                     consumer.accept(batch);
                     batch.clear();
                 }
