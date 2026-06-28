@@ -5,6 +5,9 @@ package etl;
  * This accepts Infinity and NaN as floats
  */
 public final class TypeConverter {
+    private TypeConverter() {
+    }
+
     public static Object convert(String value) {
         try {
             return Integer.parseInt(value);

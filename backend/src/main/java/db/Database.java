@@ -13,6 +13,9 @@ import java.util.List;
  * If just running compose up, leave as default
  */
 public final class Database implements Repository {
+    private final MongoClient client;
+    private final MongoDatabase db;
+
     public Database() {
         client = MongoClients.create("mongodb://mongrel:27017");
 //        client = MongoClients.create("mongodb://localhost:27017");
@@ -45,6 +48,4 @@ public final class Database implements Repository {
             client.close();
     }
 
-    private final MongoClient client;
-    private final MongoDatabase db;
 }

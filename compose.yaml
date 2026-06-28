@@ -8,7 +8,9 @@ services:
   #      dockerfile: Dockerfile.web
   #    ports:
   #      - "3000:3000"
-  
+  #    depends_on:
+  #      - backend
+
   backend:
     container_name: maggot
     build:

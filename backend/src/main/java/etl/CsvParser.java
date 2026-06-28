@@ -14,6 +14,9 @@ import java.util.function.Consumer;
 
 
 public final class CsvParser {
+    File file;
+    CSVFormat format;
+    
     /**
      * Ingests .csv files and parses it for database
      */
@@ -56,6 +59,4 @@ public final class CsvParser {
 
     }
 
-    File file;
-    CSVFormat format;
 }

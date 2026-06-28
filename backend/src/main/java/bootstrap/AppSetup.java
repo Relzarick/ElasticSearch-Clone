@@ -31,3 +31,4 @@ public final class AppSetup {
 }
 
 // TODO need shutdown hook to close db on JVM exit (return after fully built)
+// This can just become a static method
